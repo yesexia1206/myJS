@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //請輸入單價數量後算出小計，小計>=1000 運費 0，否則運費 1%
+        //狀況1: 單價500 數量2 價格1000 運費0
+        //狀況2: 單價500 數量1 價格500 運費5
+        //需非數字判斷提醒
+        var price=Number(window.prompt('請輸入單價'));
+        var qty=Number(window.prompt('請輸入數量'));
+        if(isNaN(price)||isNaN(qty)){
+            console.log('單價數量輸入錯誤');
+        }else{
+            //小計
+            var tot=price*qty;
+            //運費
+            var dis=0;
+            if(tot<1000){
+                dis=tot*0.01;
+            }
+            //輸出結果
+            console.log('單價:'+price);
+            console.log('數量:'+qty);
+            console.log('小計:'+tot);
+            console.log('運費:'+dis);
+        }
+
+        //自我練習
+        var coin = window.prompt('請輸入單價');
+        var amount = window.prompt('請輸入數量');
+        var sum, fare;
+        
+        if (isNaN(Number(coin)) || isNaN(Number(amount)) || coin <= 0 || amount <= 0) {
+            console.log('非數字請輸入數字或非正值');
+        } else {
+            sum = coin * amount;
+            fare=0;
+            if(sum<1000){
+                fare=sum*0.01;
+            }
+            console.log('單價:'+coin);
+            console.log('數量:'+amount);
+            console.log('小計:'+sum);
+            console.log('運費:'+fare);
+        }
+
+    </script>
+</body>
+
+</html>

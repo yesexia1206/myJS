@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //不斷彈出輸入視窗直到取消
+        var count = 0;
+        var pass = 0, nopass = 0, tot = 0, avg = 0;
+        while (true) {
+            var keyin = window.prompt('輸入任意內容');
+
+            if (keyin == null) {   //取消輸入
+                break;  //脫離迴圈至下一行
+            }
+
+            if (keyin.trim() == '') {   //空值判斷，去除空白後是否有空白  trim()去除前後空白
+                alert('空值不計數');
+                continue;    //忽略之後的程式碼
+            }
+
+            if (isNaN(Number(keyin))) {   //是否數字
+                alert('非數字不計數');
+                continue;    //忽略之後的程式碼
+            }
+            count++;
+
+            keyin = Number(keyin);  //將輸入的字串轉為數字型態
+
+            if (keyin >= 60) {
+                pass++;
+            } else {
+                nopass++;
+            }
+
+            console.log(keyin);
+            tot = tot + keyin;
+        }
+        console.log(keyin);
+
+        avg = tot / (pass + nopass);
+        console.log(`及格:${pass}人`);
+        console.log(`不及格:${nopass}人`);
+        console.log(`總分:${tot}分`);
+        console.log(`平均:${avg}分`);
+
+        window.alert('輸入' + count + '次');
+        window.alert('輸入結束'); // window.alert(keyin); 訊息視窗
+
+        //輸入分數，統計及格與不及格人數，總分與平均
+
+
+    </script>
+</body>
+
+</html>

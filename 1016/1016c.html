@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 使用輸入視窗 (prompt) 來判斷輸入值奇偶 -->
+    <script>
+        var num = window.prompt('請輸入任意數字來判斷奇偶'); //輸入視窗
+
+        console.log(Number(num)); //轉換成數字型別(Number)
+        console.log(typeof (num)); //檢查資料型別(typeof)
+        console.log(parseInt(num)); //轉換成整數型別(parseInt)
+
+        if (isNaN(Number(num))) {
+            console.log('非數字請輸入數字');
+        }
+        else {
+            var a = num % 2;
+            console.log(a);
+            if (a === 0) {
+                console.log('偶數');
+            }
+            else {
+                console.log('奇數');
+            }
+        }
+    </script>
+</body>
+
+</html>

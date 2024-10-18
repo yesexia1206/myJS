@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 運算子 -->
+    <!--
+    + 加
+    - 減
+    * 乘
+    / 除取商
+    % 除取餘
+    -->
+    <script>
+        var a = 5, b = 3;
+        document.write('5+3=' + (a + b) + '<br>');
+        //字串字面值，必須使用反引號包起來，變數使用${變數名稱或運算式}
+        document.write(`${a}+${b}=${a + b}<br>`);
+        document.write(`${a}-${b}=${a - b}<br>`);
+        document.write(`${a}*${b}=${a * b}<br>`);
+        document.write(`${a}/${b}=${a / b}<br>`);
+        document.write(`${a}%${b}=${a % b}<br>`);
+
+        var c = window.prompt('請輸入運算式符號+-*/%'); //輸入視窗
+        if (c === '+') // ==(不嚴謹比較)  ===(型態也需一樣)
+        {
+            document.write(`${a}+${b}=${a + b}<br>`);
+        }
+        else if (c === '-') {
+            document.write(`${a}-${b}=${a - b}<br>`);
+        }
+        else if (c === '*') {
+            document.write(`${a}*${b}=${a * b}<br>`);
+        }
+        else if (c === '/') {
+            document.write(`${a}/${b}=${a / b}<br>`);
+        }
+        else if (c === '%') {
+            document.write(`${a}%${b}=${a % b}<br>`);
+        }
+        else {
+            document.write(c);
+        }
+
+    </script>
+</body>
+
+</html>
