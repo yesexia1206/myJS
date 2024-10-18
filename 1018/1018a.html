@@ -14,32 +14,70 @@
         // 狀況2：帳號正確+密碼錯誤 =>  顯示密碼err
         // 狀況3：帳號錯誤+密碼正確 =>  顯示帳號err
         // 狀況4：帳號錯誤+密碼錯誤 =>  顯示帳密err
-        // var inputck = new RegExp("[^A-Za-z0-9]");
-        //var inputck = /[^a-zA-Z0-9]/;
-        var inputck = /[^a-zA-Z0-9]/g;  //正規表示式，除英數字外
+
+        //var inputck = /[^a-zA-Z0-9]/
+        //正規表示式，^除英數字外 g全域 匹配
+        var inputck = /[^a-zA-Z0-9]/g;
+
         while (true) {
-            var userN = window.prompt('請輸入帳號、密碼，檢查是否正確？\n帳號:JS7');
-            console.log(userN);
-            if (userN == null) {   //取消輸入
+            var userN = window.prompt('請輸入帳號、密碼，檢查是否正確？\n帳號:JS7'); //userN帳號
+            if (userN == null) //取消輸入
+            {
                 break;  //脫離迴圈至下一行
             }
-            var userP = window.prompt('請輸入帳號、密碼，檢查是否正確？\n密碼:js7');
-            console.log(userP);
-            if (userP == null) {   //取消輸入
-                break;  //脫離迴圈至下一行
+            if (userN.match(inputck) || userN.trim() == '') {
+                alert('只能輸入英數字，且不可輸入空值');
             }
-
-            var usnp = userN + userP;
-
-            if ((userN + userP).match(inputck)) {   //輸入的內容匹配結果
-                alert('只能輸入英數字');
-                continue;
+            else {
+                while (true) {
+                    var userP = window.prompt('請輸入帳號、密碼，檢查是否正確？\n密碼:js7'); //userP密碼
+                    if (userP == null) {
+                        break;
+                    }
+                    if (userP.match(inputck) || userP.trim() == '') {
+                        alert('只能輸入英數字，且不可輸入空值');
+                    }
+                    else {
+                        //帳密正錯錯誤判斷
+                        if (userN == 'JS7') //帳對
+                        {
+                            if (userP == 'js7') //密對
+                            {
+                                alert('帳密ok');
+                                break;
+                            }
+                            else //密錯
+                            {
+                                alert('密碼err');
+                                break;
+                            }
+                        }
+                        else //帳錯
+                        {
+                            if (userP == 'js7') //密對
+                            {
+                                alert('帳號err');
+                                break;
+                            }
+                            else //密錯
+                            {
+                                alert('帳密err');
+                                break;
+                            }
+                        }
+                    }
+                }
+                break;
             }
-            if (usnp.trim() == '') {   //空值判斷，去除空白後是否有空白  trim()去除前後空白
-                alert('不可輸入空值');
-                continue;    //忽略之後的程式碼
-            }
-
+            // var usnp = userN + userP;
+            // if ((userN + userP).match(inputck)) {   //輸入的內容匹配結果
+            //     alert('只能輸入英數字');
+            //     continue;
+            // }
+            // if (usnp.trim() == '') {   //空值判斷，去除空白後是否有空白  trim()去除前後空白
+            //     alert('不可輸入空值');
+            //     continue;    //忽略之後的程式碼
+            // }
             // if (userN == 'JS7' && userP == 'js7') {
             //     alert('帳密ok');
             //     break;
@@ -56,23 +94,6 @@
             //     alert('帳密err');
             //     break;
             // }
-
-            if (userN == 'JS7') {
-                if(userP == 'js7'){
-                    alert('帳密ok');
-                break;
-                }else{alert('密碼err');
-                break;}
-                
-            }
-            if (userN !== 'JS7' && userP == 'js7') {
-                alert('帳號err');
-                break;
-            }
-            if (userN !== 'JS7' && userP !== 'js7') {
-                alert('帳密err');
-                break;
-            }
         }
         window.alert('結束');
 
