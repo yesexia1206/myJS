@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請輸入帳號、密碼，檢查是否正確？
+        // 狀況1：帳號正確+密碼正確 =>  顯示帳密ok
+        // 狀況2：帳號正確+密碼錯誤 =>  顯示密碼err
+        // 狀況3：帳號錯誤+密碼正確 =>  顯示帳號err
+        // 狀況4：帳號錯誤+密碼錯誤 =>  顯示帳密err
+        // var inputck = new RegExp("[^A-Za-z0-9]");
+        //var inputck = /[^a-zA-Z0-9]/;
+        var inputck = /[^a-zA-Z0-9]/g;  //正規表示式
+        while (true) {
+            var userN = window.prompt('請輸入帳號、密碼，檢查是否正確？\n帳號');
+            console.log(userN);
+            if (userN == null) {   //取消輸入
+                break;  //脫離迴圈至下一行
+            }    
+            var userP = window.prompt('請輸入帳號、密碼，檢查是否正確？\n密碼');
+            console.log(userP);
+            if (userP == null) {   //取消輸入
+                break;  //脫離迴圈至下一行
+            }
+
+            if((userN+userP).match(inputck)){
+                alert('不是英數字');
+                break;
+            }
+        }
+        window.alert('結束');
+
+    </script>
+
+</body>
+
+</html>
