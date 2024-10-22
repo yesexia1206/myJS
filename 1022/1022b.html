@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // while(){}    do{} while()
+        var a = 11;
+        while (a < 10) {
+            a++;
+        }
+        console.log(a); //a=11
+
+        var b = 11;
+        do {
+            b++;
+        } while (b < 10);
+        console.log(b); //b=12
+
+        // 不斷彈出輸入視窗
+        //方法一
+        var score = '';
+        while (score != null) {
+            score = prompt('輸入任意');
+        }
+        //方法二
+        while (true) {
+            var score = prompt('輸入任意');
+            if (score == null) {
+                break;
+            }
+        }
+        //方法三
+        do {
+            var score = prompt('輸入任意');
+            //if(score==null){break;}
+        } while (score !== null);
+
+        //方法四使用for
+        var score='';
+        for (var a = 1; score!=null; a++) {
+            var score = prompt('輸入任意');
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="fun1()">無參數，無回傳值</button>
+    <br>
+    <hr>
+    <button onclick=console.log(fun2())>無參數，有回傳值</button>
+    <button onclick=alert(fun2())>無參數，有回傳值</button>
+    <br>
+    <hr>
+    <button onclick="fun3(5,3)">有參數，無回傳值</button>
+    <br>
+    <hr>
+    <button onclick="alert(fun4(3,2))">有參數，有回傳值</button>
+
+    <script>
+        //無參數無回傳值
+        function fun1() {
+            console.log('hi');
+        }
+
+        //無參數無回傳值
+        function fun2() {
+            return 'hello';
+        }
+
+        //有參數無回傳值
+        function fun3(a, b) {
+            console.log(a + b);
+        }
+
+        //有參數有回傳值
+        function fun4(a, b) {
+            return a + b;
+        }
+
+        //建立一個函式，帶有參數 ( n1 , n2 , symbol)
+        //依據運算符號(symbol) 算出兩數結果
+        //最後回傳上來，是否為奇數?
+        function fun6(n1, n2, symbol) {
+            var result = 0;
+            switch (symbol) {
+                case '+':
+                    result = n1 + n2;
+                    break;
+                case '-':
+                    result = n1 - n2;
+                    break;
+                case '*':
+                    result = n1 * n2;
+                    break;
+                case '/':
+                    result = (n1 / n2).toFixed(0);
+                    break;
+                default:
+                    return 'err';
+            }
+            return result;
+        }
+        function fun5(n1, n2, symbol) {
+            var result = 0;
+            if (symbol == '+') {
+                result = n1 + n2;
+            }
+            else if (symbol == '-') {
+                result = n1 - n2;
+            }
+            else if (symbol == '*') {
+                result = n1 * n2;
+            }
+            else if (symbol == '/') {
+                result = (n1 / n2).toFixed(0);
+            }
+            else {
+                return 'err';
+            }
+            return result;
+        }
+
+        //呼叫函式
+        var ans = fun5(5, 3, '+');
+        //檢測是否非四則運算符號
+        if (ans != 'err') {
+            //檢查是否為奇數
+            if (ans % 2 == 1) {
+                console.log(`${ans}是奇數`);
+            } else {
+                console.log(`${ans}不是奇數`);
+            }
+        } else {
+            console.log('err');
+        }
+
+    </script>
+</body>
+
+</html>

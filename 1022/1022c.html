@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1+2+3+....+10=?
+        var s = 0;
+        // s = s + 1; // s=0+1=1
+        // s = s + 2; // s=1+2=3
+        for (var a = 1; a <= 10; a++) {
+            s = s + a;
+        }
+        console.log(`1~${(a - 1)}合計${s}`);
+
+
+        var a3s = 0; //合
+        //1~100中3的倍數合
+        for (var a = 1; a <= 100; a++) {
+            if (a % 3 === 0) {
+                a3s = a3s + a;
+            }
+        }
+        console.log(`1~100中3的倍數合=> ${a3s}`);
+
+        var a3s = 0; //合
+        //100~1中3的倍數合
+        for (var a = 100; a >= 1; a--) {
+            if (a % 3 === 0) {
+                a3s = a3s + a;
+            }
+        }
+        console.log(`100~1中3的倍數合=> ${a3s}`);
+    </script>
+</body>
+
+</html>
