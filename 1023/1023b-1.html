@@ -30,7 +30,7 @@
         //BMI= ? 狀態:(過輕/正常/異常(過重)) =>檢查後顯示
         var BMI = (h, kg) => {
             var p2 = document.getElementById('p2');
-            var bmi = kg / h * h;
+            var bmi = (kg / (h * h)).toFixed(3);
             if (bmi < 18.5) {
                 p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重過輕`;
             } else if (bmi >= 18.5 && bmi < 24) {
