@@ -13,7 +13,7 @@
     <br>
     <hr>
     BMI<p id="p2"></p>
-    <button onclick="BMI(1.8,105)">圓面積計算</button>
+    <button onclick="BMI(1.8,105)">BMI計算</button>
     <script>
         //建立一個函式，傳參數 r
         //輸入半徑 r ，算出面積 = 3.14 * r *r
@@ -33,9 +33,11 @@
             var bmi = (kg / (h * h)).toFixed(3);
             if (bmi < 18.5) {
                 p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重過輕`;
-            } else if (bmi >= 18.5 && bmi < 24) {
+            } 
+            else if (bmi >= 18.5 && bmi < 24) {
                 p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重正常`;
-            } else if (bmi >= 24 && bmi < 27) {
+            } 
+            else if (bmi >= 24 && bmi < 27) {
                 p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重過重`;
             }
             else if (bmi >= 27 && bmi < 30) {
@@ -46,10 +48,10 @@
             }
             else if (bmi >= 35) {
                 p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 重度肥胖`;
-            } else {
+            } 
+            else {
                 p2.innerHTML = `輸入錯誤`;
             }
-
         }
 
     </script>
