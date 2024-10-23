@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 按鈕+1-1更改段落p1顯示 -->
+    <p id="p1">1</p>
+    <button onclick="replaceP1('+1')">+1</button>
+    <button onclick="replaceP1('-1')">-1</button>
+    <br>
+    <hr>
+
+    <!-- 使用監聽事件的方式來呼叫函式 -->
+    <button id="btn1">sayhi</button>
+
+    <script>
+        //按鈕+1-1更改段落p1顯示
+        var i = 1;
+        var p1 = document.getElementById('p1');
+        var replaceP1 = (count) => {
+            if (count == '+1') {
+                i++;
+            }
+            if (count == '-1') {
+                i--;
+            }
+            p1.innerHTML = `${i}`;
+        }
+
+        //使用監聽事件的方式來呼叫函式
+        var btn1 = document.getElementById('btn1');
+        //一般
+        // btn1.addEventListener('click', sayhi);
+        // function sayhi() {
+        //     console.log('hi');
+        // }
+        //箭頭函式
+        btn1.addEventListener('click', () => { console.log('hi') });
+    </script>
+</body>
+
+</html>
