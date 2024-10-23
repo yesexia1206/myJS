@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    圓面積<p id="p1"></p>
+    <button onclick="circle_area(3)">圓面積計算</button>
+    <br>
+    <hr>
+    BMI<p id="p2"></p>
+    <button onclick="BMI(1.8,105)">圓面積計算</button>
+    <script>
+        //建立一個函式，傳參數 r
+        //輸入半徑 r ，算出面積 = 3.14 * r *r
+        //回傳面積結果顯示頁面段落一上
+        var circle_area = (r) => {
+            var p1 = document.getElementById('p1');
+            var ca = r * r * 3.14;
+            p1.innerHTML = `半徑:${r} 圓面積:${ca}`;
+        }
+
+        //建立一個函式，傳參數身高 h 、體重 kg
+        //算出BMI=體重(kg)/身高(h*h)
+        //回傳BMI結果顯示頁面段落二上
+        //BMI= ? 狀態:(過輕/正常/異常(過重)) =>檢查後顯示
+        var BMI = (h, kg) => {
+            var p2 = document.getElementById('p2');
+            var bmi = kg / h * h;
+            if (bmi < 18.5) {
+                p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重過輕`;
+            } else if (bmi >= 18.5 && bmi < 24) {
+                p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重正常`;
+            } else if (bmi >= 24 && bmi < 27) {
+                p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 體重過重`;
+            }
+            else if (bmi >= 27 && bmi < 30) {
+                p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 輕度肥胖`;
+            }
+            else if (bmi >= 30 && bmi < 35) {
+                p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 中度肥胖`;
+            }
+            else if (bmi >= 35) {
+                p2.innerHTML = `身高:${h}m 體重:${kg}kg BMI: ${bmi} 狀態: 重度肥胖`;
+            } else {
+                p2.innerHTML = `輸入錯誤`;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

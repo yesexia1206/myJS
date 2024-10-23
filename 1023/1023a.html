@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- DOM -->
+    <h1>DOM</h1>
+    <p>DDDD</p>
+    <div>
+        <!-- lorem 5  -->
+        <!-- Lorem ipsum dolor sit amet. -->
+        <h2>title</h2>
+        <!-- class類別名稱 class="" -->
+        <!-- id名稱 id="" -->
+        <p class="myP1">段落</p>
+        <button class="btn1">更換段落內容</button>
+        <p id="myP2">1</p>
+        <button id="btn2">+</button>
+        <button id="btn3">-</button>
+    </div>
+    <script>
+        //取得目標
+        //方法一(取得HTML標籤)
+        // var p1 = document.getElementsByTagName('p');
+        // console.log(p1);
+        // console.log(p1[0]);
+
+        //方法二(取得類別名稱)
+        // var p1 = document.getElementsByClassName('myP1');
+        // console.log(p1);
+        // console.log(p1[0].innerHTML); //取得p1類別的內容
+
+        //方法三(取得id名稱)
+        // var p2 = document.getElementById('myP2');
+        // console.log(p2);
+        // console.log(p2.innerHTML); //取得p2id的內容
+
+        //方法四(取得第一個按鈕的內容)
+        //document.querySelector();只會取得相同名稱的第一個
+        // var btn1=document.querySelector('button');
+        // console.log(btn1);
+
+        //類別名稱前加一個小數點
+        // var btn1 = document.querySelector('.btn1');
+        // console.log(btn1);
+
+        //id名稱前加一個 #
+        // var btn2 = document.querySelector('#btn2');
+        // console.log(btn2);
+        // var btn3 = document.querySelector('#btn3');
+        // console.log(btn3);
+
+
+
+    </script>
+</body>
+
+</html>
