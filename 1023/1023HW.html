@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>讀亂數遊戲</p>
+    <p id="ans">正確數字：</p>
+    <p id="result"></p>
+    <script>
+        //JS-hw2-1023- 猜數字（1-100），直到猜對為止
+        // 舉例：
+        // 亂數值：60
+        // 第1次：50 => 太小了（提示：50-100）
+        // 第2次：90 => 太大了（提示：50-90）
+        // 第3次：80 => 太大了（提示：50-80）
+        // 第4次：55 => 太小了（提示：55-80）
+        // 第5次：60 => 猜對了
+
+        // var mi = prompt('讀亂數遊戲，請輸入最小值');
+        // var mx = prompt('讀亂數遊戲，請輸入最大值');
+
+        //取亂數函式
+        function getRandom(min, max) {
+            //取亂數
+            var a = Math.floor(Math.random() * max) + min;
+            console.log(`${min}~${max}之間的亂數值為${a}`);
+            return a;
+        }
+
+        var mx = 100; //初始最大值
+        var mi = 1; //初始最小值
+
+        var bingo = getRandom(1, 100);  //var bingo = getRandom(mi, mx);
+        alert(`bingo亂數值(1~100)為：${bingo}`);  //alert(`bingo亂數值(${mi}~${mx})為：${bingo}`);
+        var ans = document.getElementById('ans');
+        ans.innerHTML = ans.innerHTML + bingo;
+
+        var inputck = /[^0-9]/g; //除0-9
+        var inputCount = 0; //變數輸入次數
+        var last_input = 0; //變數上次輸入值
+
+        var _ct_inp = () => {  //計輸入次數與輸入值函式
+            inputCount++;
+            last_input = Number(input);
+        }
+
+        var result = document.getElementById('result');
+        //寫迴圈彈出輸入視窗，來輸入值
+        //檢查是否跟亂數一樣
+        while (true) {
+            var input = prompt('讀亂數遊戲，請輸入任意數');  //變數輸入值
+            if (input == bingo) {  //猜對
+                alert('猜對了');
+                _ct_inp();
+                result.innerHTML = result.innerHTML + `猜測第${inputCount}次：${last_input}\n=>答對！`;
+                break;
+            }
+            if (input == null) {   //取消輸入
+                alert('取消輸入');
+                document.write('取消輸入');
+                break;  //脫離迴圈至下一行
+            }
+            if (input.match(inputck) || input.trim() == '') {  //只能輸入數字
+                alert('只能輸入數字(正值)，且不可輸入空值');
+                continue;
+            }
+            if (input > mx || input < mi ) {  //只能輸入${mi}~${mx}範圍的數字
+                alert(`只能輸入${mi}~${mx}範圍的數字`);
+                continue;
+            }
+            else if (input > bingo) {  //如果輸入值大於賓果值
+                alert(`猜的數字比較大\n提示(${mi}~${input})`);
+                _ct_inp();
+            }
+            else if (input < bingo) {  //如果輸入值小於賓果值
+                alert(`猜的數字比較小\n提示(${input}~${mx})`);
+                _ct_inp();
+            }
+            else{
+                alert('err');
+            }
+            
+            //顯示猜幾次與猜的數字且換行
+            result.innerHTML = result.innerHTML + `猜測第${inputCount}次：${last_input}<br>`;
+        }
+    </script>
+</body>
+
+</html>
