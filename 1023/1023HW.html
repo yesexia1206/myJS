@@ -32,11 +32,13 @@
             return a;
         }
 
-        var mx = 100; //初始最大值
-        var mi = 1; //初始最小值
+        var max=100; //初始最大值
+        var min=1; //初始最小值
+        var mx = max; //變動最大值
+        var mi = min; //變動最大值
 
-        var bingo = getRandom(1, 100);  //var bingo = getRandom(mi, mx);
-        alert(`bingo亂數值(1~100)為：${bingo}`);  //alert(`bingo亂數值(${mi}~${mx})為：${bingo}`);
+        var bingo = getRandom(min, max);  //var bingo = getRandom(mi, mx);
+        alert(`bingo亂數值(${min}~${max})為：${bingo}`);  //alert(`bingo亂數值(${mi}~${mx})為：${bingo}`);
         var ans = document.getElementById('ans');
         ans.innerHTML = ans.innerHTML + bingo;
 
@@ -69,17 +71,19 @@
                 alert('只能輸入數字(正值)，且不可輸入空值');
                 continue;
             }
-            if (input > mx || input < mi ) {  //只能輸入${mi}~${mx}範圍的數字
-                alert(`只能輸入${mi}~${mx}範圍的數字`);
+            if (input > max || input < min ) {  //只能輸入${mi}~${mx}範圍的數字
+                alert(`只能輸入${min}~${max}範圍的數字`);
                 continue;
             }
             else if (input > bingo) {  //如果輸入值大於賓果值
                 alert(`猜的數字比較大\n提示(${mi}~${input})`);
                 _ct_inp();
+                mx=input;
             }
             else if (input < bingo) {  //如果輸入值小於賓果值
                 alert(`猜的數字比較小\n提示(${input}~${mx})`);
                 _ct_inp();
+                mi=input;
             }
             else{
                 alert('err');
