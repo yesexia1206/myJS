@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 找出陣列中最大值與最小值
+        var arr1 = [5, 60, 3, 90, 33, 1, 100, -1, 200, '300', '-3', true];
+        var arr1mx, arr1mi;
+        for (var i = 0; i < arr1.length; i++) {
+            if (typeof (arr1[i]) === "number") { //型別需數字
+                if (arr1[i] > arr1[0]) {
+                    arr1mx = arr1[i];
+                }
+                else if (arr1[i] < arr1[0]) {
+                    arr1mi = arr1[i];
+                }
+            }
+
+        }
+        console.log('最大值' + arr1mx);
+        console.log('最小值' + arr1mi);
+
+        // 找出陣列中最大值與最小值，沒有判斷型別
+        // var a = Math.max(...arr1);
+        // var b = Math.min(...arr1);
+        // console.log(a);
+        // console.log(b);
+
+        var arr2 = [5, 60, 3, 90, 33, 1, 100, -1, 200, '300', '-3', true];
+        console.log('處理前');
+        console.log(arr2);
+        //去除非數值的陣列資料 =>保留數值的資料
+        arr2 = arr2.filter((data) => {       //陣列arr2先用filter回傳是數值的資料再給arr2
+            if (typeof data === "number") {
+                return data;
+            }
+        });
+        console.log('處理後');
+        console.log(arr2);
+    </script>
+</body>
+
+</html>
