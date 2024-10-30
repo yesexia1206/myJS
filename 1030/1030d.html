@@ -13,25 +13,25 @@
     <button onclick="b539()">539</button>
     <script>
 
-        function big(){
-            bingoArr(1,49,6);
-            VIPN(1,49);
-            arr=[];
+        function big() {
+            bingoArr(1, 49, 6);
+            VIPN(1, 49, true);
+            arr = [];
         }
-        function power(){
-            bingoArr(1,38,6);
-            VIPN(1,8);
-            arr=[];
+        function power() {
+            bingoArr(1, 38, 6);
+            VIPN(1, 8, false);
+            arr = [];
         }
-        function b539(){
-            bingoArr(1,39,5);
-            arr=[];
+        function b539() {
+            bingoArr(1, 39, 5);
+            arr = [];
         }
 
         var arr = [];
-        
-        function bingoArr(min,max,n) {
-            
+
+        function bingoArr(min, max, n) {
+
             for (var i = 0; i < n; i++) {
                 var bingoNum = Math.floor(Math.random() * max) + min;
                 if (arr.includes(bingoNum)) {
@@ -46,16 +46,23 @@
             console.log(`第一區:${arr}`);
         }
 
-        function VIPN(min,max) {
-            while (true) {
+        function VIPN(min, max, tf) {
+            if (tf == true) {
+                while (true) {
+                    var sn = Math.floor(Math.random() * max) + min;
+                    if (arr.includes(sn)) {
+                        continue;
+                    }
+                    else {
+                        arr.push(sn);
+                        break;
+                    }
+                    console.log('T');
+                }
+            } else {
                 var sn = Math.floor(Math.random() * max) + min;
-                if (arr.includes(sn)) {
-                    continue;
-                }
-                else {
-                    arr.push(sn);
-                    break;
-                }
+                arr.push(sn);
+                console.log('F');
             }
             console.log(`特別號:${arr[arr.length - 1]}`);
         }
