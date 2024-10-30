@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="big()">大樂透</button>
+    <button onclick="power()">威力彩</button>
+    <button onclick="b539()">539</button>
+    <script>
+
+        function big(){
+            bingoArr(1,49,6);
+            VIPN(1,49);
+            arr=[];
+        }
+        function power(){
+            bingoArr(1,38,6);
+            VIPN(1,8);
+            arr=[];
+        }
+        function b539(){
+            bingoArr(1,39,5);
+            arr=[];
+        }
+
+        var arr = [];
+        
+        function bingoArr(min,max,n) {
+            
+            for (var i = 0; i < n; i++) {
+                var bingoNum = Math.floor(Math.random() * max) + min;
+                if (arr.includes(bingoNum)) {
+                    i--;
+                    continue;
+                }
+                else {
+                    arr[i] = bingoNum;
+                }
+            }
+            console.log(arr);
+            console.log(`第一區:${arr}`);
+        }
+
+        function VIPN(min,max) {
+            while (true) {
+                var sn = Math.floor(Math.random() * max) + min;
+                if (arr.includes(sn)) {
+                    continue;
+                }
+                else {
+                    arr.push(sn);
+                    break;
+                }
+            }
+            console.log(`特別號:${arr[arr.length - 1]}`);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //大樂透
+        var arr = [];
+        for (var i = 0; i < 6; i++) {
+            var n = Math.floor(Math.random() * 49) + 1;
+            if (arr.includes(n)) {
+                i--;
+                continue;
+            }
+            else {
+                arr[i] = n;
+            }
+        }
+        console.log(arr);
+        console.log(`第一區:${arr}`);
+
+        while(true){
+            var sn = Math.floor(Math.random() * 49) + 1;
+            if (arr.includes(sn)) {
+                continue;
+            }
+            else {
+                arr.push(sn);
+                break;
+            }
+        }
+        console.log(`特別號:${arr[arr.length-1]}`);
+        console.log(`特別號:${sn}`);
+            
+    </script>
+</body>
+
+</html>
